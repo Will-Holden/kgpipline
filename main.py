@@ -2,6 +2,7 @@ import os
 from core import MainLoop
 import click
 
+# test git
 @click.command()
 @click.option("batch_size", default=5, help="how many datas execute one time")
 def _main(batch_size):
