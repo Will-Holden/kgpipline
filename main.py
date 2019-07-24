@@ -4,6 +4,9 @@ import click
 
 @click.command()
 @click.option("batch_size", default=5, help="how many datas execute one time")
-if __name__ == '__main__':
+def _main(batch_size):
     MainLoop.main_loop(batch_size)
 
+
+if __name__ == '__main__':
+    _main()
