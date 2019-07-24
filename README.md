@@ -1,2 +1,7 @@
-# kgpipline
-The architecture of a data pipline for data processing
+# pipline
+## 架构
+主要由两个部分组成：
+1. 控制节点  
+    控制节点负责从消息队列中获取待处理数据，分发给执行节点。同一时间只会有一个控制节点。
+2. 执行节点  
+   执行节点从控制节点获取任务信息，并执行。
