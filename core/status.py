@@ -1,5 +1,5 @@
-from core.Singleton import Singleton
-from core.Tasks import BaseTask
+from core.singleton import Singleton
+from core.tasks import BaseTask
 
 class Status(metaclass=Singleton):
     """

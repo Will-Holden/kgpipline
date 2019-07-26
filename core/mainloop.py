@@ -1,10 +1,9 @@
-import pandas as pd
 import pickle
 import time
 import json
 from settings import MESSAGE_CHANNEL, DATA_PROCESSORS
-from core.Tasks import app, start_process
-from queues.RedisQueue import RedisQueue
+from core.tasks import app, start_process
+from queues.redisqueue import RedisQueue
 
 __all__ = ["main_loop"]
 

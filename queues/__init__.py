@@ -1,1 +1,4 @@
-__all__ = ['RedisQueue']
+import redisqueue
+
+__all__ = ['redisqueue']
+

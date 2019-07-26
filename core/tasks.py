@@ -5,7 +5,8 @@
 
 import pandas as pd
 from piplinecelery.celery import app
-from core.Status import Status
+from core.status import Status
+import logging
 
 
 @app.task
@@ -16,7 +17,7 @@ def start_process(data, task_name):
     try:
         task.process(data)
     except Exception as e:
-        print("error occured when executing task {0}".format(task_name))
+        logging.info("error occured when executing task {0}".format(task_name))
 
 from abc import ABCMeta, abstractmethod
 import time
@@ -45,14 +46,14 @@ class BaseTask:
     def process(self, datas):
         """逐步执行任务
         """
-        print("there is {0} steps to be executed".format(self.__len__()))
+        logging.info("there is {0} steps to be executed".format(self.__len__()))
         for index, step in enumerate(self.steps):
-            print("executing the {0} step, step name is {1}".format(index, step))
+            logging.info("executing the {0} step, step name is {1}".format(index, step))
             start_time = time.time()
             datas = step[0].fit(datas)
             end_time = time.time()
-            print("step {0} cost time {1}".format(index, end_time - start_time))
-            print("data processed {0}".format(datas))
+            logging.info("step {0} cost time {1}".format(index, end_time - start_time))
+            logging.info("data processed {0}".format(datas))
             return datas
 
 
